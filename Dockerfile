@@ -5,13 +5,13 @@ FROM node:16-alpine as builder
 WORKDIR /Spyd-main
 
 # Copy package.json and package-lock.json into the container's working directory
-COPY Spyd-main/package*.json ./
+COPY package*.json ./
 
 # Install Node.js dependencies
 RUN npm install
 
 # Copy the rest of the application source code into the container
-COPY Spyd-main/ ./
+COPY . .
 
 # Build the application
 RUN npm run build
